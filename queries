@@ -1,0 +1,52 @@
+-- 2.Soru:
+--a) Insert işlemine örnek gösteriniz
+
+-- OkulDb veritabanına öğrenci ekleyiniz.
+-- INSERT INTO Ogrenciler(OgrenciAdi,OgrenciSoyadi) Values('Esra','Bir')
+
+-- b) Delete işlemine örnek gösteriniz.
+-- Okul veri tabanındaki Ogrenciler tablosundaki idsi 9 olan öğrenciyi siliniz.
+-- BEGIN TRAN DELETE FROM Ogrenciler Where ogrenci_id=9 ROLLBACK TRAN
+
+-- c) Update işlemine örnek gösteriniz.
+-- Öğretmenlerdeki Ayşe Kaya'nın soyadını Umut olarak güncelleyiniz.
+-- BEGIN TRAN UPDATE Ogretmenler SET OgretmenSoyadi = 'Umut' WHERE OgretmenAdi='Ayşe' and OgretmenSoyadi='Kaya' ROLLBACK TRAN
+
+-- 3.Soru:
+-- Öğrencilerin aldıkları derslerin sınavlarındaki notlarını gösteriniz.
+
+--SELECT O.OgrenciAdi,O.OgrenciSoyadi,D.DersAdi,N.not1,N.not2 FROM Ogrenciler O 
+--INNER JOIN Ders_Sinif DS ON DS.ogrenci_id=O.ogrenci_id
+--INNER JOIN Dersler D ON D.ders_id=DS.DersId
+--INNER JOIN Notlar N ON N.ders_sinif_id=DS.Id
+
+--4.Soru: Bir view tasarlayınız
+--9-A sınıfındaki öğrencilerin notlarını görüntüleyen view:
+
+--CREATE VIEW [dbo].[View_9A_Ogrenci_Notlari]
+--AS
+--SELECT
+--    ds.[Id] AS [DersSinifId],
+--    s.[SinifAdi] AS [SinifAdi],
+--    o.[OgrenciAdi] AS [OgrenciAdi],
+--    o.[OgrenciSoyadi] AS [OgrenciSoyadi],
+--    d.[DersAdi] AS [DersAdi],
+--    n.[not1] AS [Not1],
+--    n.[not2] AS [Not2]
+--FROM [dbo].[Ders_Sinif] ds
+--INNER JOIN [dbo].[Siniflar] s ON ds.[SinifId] = s.[sinif_id]
+--INNER JOIN [dbo].[Ogrenciler] o ON ds.[ogrenci_id] = o.[ogrenci_id]
+--INNER JOIN [dbo].[Dersler] d ON ds.[DersId] = d.[ders_id]
+--INNER JOIN [dbo].[Notlar] n ON ds.[Id] = n.[ders_sinif_id]
+--WHERE s.[SinifAdi] = '9-A';
+
+--SELECT * FROM View_9A_Ogrenci_Notlari
+
+-- 5.Soru:
+--Bir stored procedure oluşturunuz
+--Ders ekleyen stored procedure:
+
+--CREATE PROC DersEkleyici (@ders varchar(20)) AS INSERT Dersler(DersAdi) VALUES(@ders)
+
+-- Test:
+--DersEkleyici 'Fizik'
