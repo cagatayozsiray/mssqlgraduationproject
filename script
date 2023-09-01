@@ -1,0 +1,191 @@
+USE [okuldb]
+GO
+/****** Object:  Table [dbo].[Ders_Sinif]    Script Date: 11.05.2023 20:35:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ders_Sinif](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DersId] [int] NULL,
+	[SinifId] [int] NULL,
+	[ogretmen_id] [int] NULL,
+	[ogrenci_id] [int] NULL,
+ CONSTRAINT [PK_Ders_Sinif] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Dersler]    Script Date: 11.05.2023 20:35:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Dersler](
+	[ders_id] [int] IDENTITY(1,1) NOT NULL,
+	[DersAdi] [varchar](50) NULL,
+ CONSTRAINT [PK_Dersler] PRIMARY KEY CLUSTERED 
+(
+	[ders_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Notlar]    Script Date: 11.05.2023 20:35:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Notlar](
+	[ders_sinif_id] [int] IDENTITY(1,1) NOT NULL,
+	[not1] [int] NULL,
+	[not2] [int] NULL,
+ CONSTRAINT [PK_Notlar] PRIMARY KEY CLUSTERED 
+(
+	[ders_sinif_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ogrenciler]    Script Date: 11.05.2023 20:35:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ogrenciler](
+	[ogrenci_id] [int] IDENTITY(1,1) NOT NULL,
+	[OgrenciAdi] [varchar](50) NULL,
+	[OgrenciSoyadi] [varchar](50) NULL,
+ CONSTRAINT [PK_Ogrenciler] PRIMARY KEY CLUSTERED 
+(
+	[ogrenci_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ogretmenler]    Script Date: 11.05.2023 20:35:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ogretmenler](
+	[ogretmen_id] [int] IDENTITY(1,1) NOT NULL,
+	[OgretmenAdi] [varchar](50) NULL,
+	[OgretmenSoyadi] [varchar](50) NULL,
+ CONSTRAINT [PK_Ogretmenler] PRIMARY KEY CLUSTERED 
+(
+	[ogretmen_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Siniflar]    Script Date: 11.05.2023 20:35:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Siniflar](
+	[sinif_id] [int] IDENTITY(1,1) NOT NULL,
+	[SinifAdi] [varchar](10) NULL,
+ CONSTRAINT [PK_Siniflar] PRIMARY KEY CLUSTERED 
+(
+	[sinif_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Ders_Sinif] ON 
+
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (1, 1, 1, 1, 1)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (2, 2, 1, 3, 1)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (3, 1, 1, 1, 2)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (4, 2, 1, 3, 2)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (5, 1, 2, 1, 3)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (6, 2, 2, 3, 3)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (7, 1, 2, 1, 4)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (8, 2, 2, 3, 4)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (9, 1, 3, 2, 5)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (10, 2, 3, 4, 5)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (11, 1, 3, 2, 6)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (12, 2, 3, 4, 6)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (13, 1, 4, 2, 7)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (14, 2, 4, 4, 7)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (15, 1, 4, 2, 8)
+INSERT [dbo].[Ders_Sinif] ([Id], [DersId], [SinifId], [ogretmen_id], [ogrenci_id]) VALUES (16, 2, 4, 4, 8)
+SET IDENTITY_INSERT [dbo].[Ders_Sinif] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Dersler] ON 
+
+INSERT [dbo].[Dersler] ([ders_id], [DersAdi]) VALUES (1, N'Matematik')
+INSERT [dbo].[Dersler] ([ders_id], [DersAdi]) VALUES (2, N'Edebiyat')
+SET IDENTITY_INSERT [dbo].[Dersler] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Notlar] ON 
+
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (1, 100, 80)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (2, 90, 95)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (3, 55, 65)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (4, 45, 50)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (5, 46, 47)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (6, 48, 49)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (7, 51, 52)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (8, 53, 54)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (9, 56, 57)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (10, 58, 59)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (11, 60, 61)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (12, 62, 63)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (13, 64, 66)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (14, 67, 68)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (15, 69, 70)
+INSERT [dbo].[Notlar] ([ders_sinif_id], [not1], [not2]) VALUES (16, 71, 72)
+SET IDENTITY_INSERT [dbo].[Notlar] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Ogrenciler] ON 
+
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (1, N'Sema', N'Tok')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (2, N'Hakan', N'Keçi')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (3, N'Aslı', N'Nur')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (4, N'Merve', N'Aç')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (5, N'Sima', N'Üzüm')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (6, N'Berk', N'Kıraç')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (7, N'Onur', N'Kaya')
+INSERT [dbo].[Ogrenciler] ([ogrenci_id], [OgrenciAdi], [OgrenciSoyadi]) VALUES (8, N'Yasemin', N'Gönen')
+SET IDENTITY_INSERT [dbo].[Ogrenciler] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Ogretmenler] ON 
+
+INSERT [dbo].[Ogretmenler] ([ogretmen_id], [OgretmenAdi], [OgretmenSoyadi]) VALUES (1, N'Ayşe', N'Kaya')
+INSERT [dbo].[Ogretmenler] ([ogretmen_id], [OgretmenAdi], [OgretmenSoyadi]) VALUES (2, N'Ahmet', N'Temiz')
+INSERT [dbo].[Ogretmenler] ([ogretmen_id], [OgretmenAdi], [OgretmenSoyadi]) VALUES (3, N'Ali', N'Öz')
+INSERT [dbo].[Ogretmenler] ([ogretmen_id], [OgretmenAdi], [OgretmenSoyadi]) VALUES (4, N'Zeynep', N'Sorar')
+SET IDENTITY_INSERT [dbo].[Ogretmenler] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Siniflar] ON 
+
+INSERT [dbo].[Siniflar] ([sinif_id], [SinifAdi]) VALUES (1, N'9-A')
+INSERT [dbo].[Siniflar] ([sinif_id], [SinifAdi]) VALUES (2, N'9-B')
+INSERT [dbo].[Siniflar] ([sinif_id], [SinifAdi]) VALUES (3, N'9-C')
+INSERT [dbo].[Siniflar] ([sinif_id], [SinifAdi]) VALUES (4, N'9-D')
+SET IDENTITY_INSERT [dbo].[Siniflar] OFF
+GO
+ALTER TABLE [dbo].[Ders_Sinif]  WITH CHECK ADD  CONSTRAINT [FK_Ders_Sinif_Dersler] FOREIGN KEY([DersId])
+REFERENCES [dbo].[Dersler] ([ders_id])
+GO
+ALTER TABLE [dbo].[Ders_Sinif] CHECK CONSTRAINT [FK_Ders_Sinif_Dersler]
+GO
+ALTER TABLE [dbo].[Ders_Sinif]  WITH CHECK ADD  CONSTRAINT [FK_Ders_Sinif_Ogrenciler] FOREIGN KEY([ogrenci_id])
+REFERENCES [dbo].[Ogrenciler] ([ogrenci_id])
+GO
+ALTER TABLE [dbo].[Ders_Sinif] CHECK CONSTRAINT [FK_Ders_Sinif_Ogrenciler]
+GO
+ALTER TABLE [dbo].[Ders_Sinif]  WITH CHECK ADD  CONSTRAINT [FK_Ders_Sinif_Ogretmenler] FOREIGN KEY([ogretmen_id])
+REFERENCES [dbo].[Ogretmenler] ([ogretmen_id])
+GO
+ALTER TABLE [dbo].[Ders_Sinif] CHECK CONSTRAINT [FK_Ders_Sinif_Ogretmenler]
+GO
+ALTER TABLE [dbo].[Ders_Sinif]  WITH CHECK ADD  CONSTRAINT [FK_Ders_Sinif_Siniflar] FOREIGN KEY([SinifId])
+REFERENCES [dbo].[Siniflar] ([sinif_id])
+GO
+ALTER TABLE [dbo].[Ders_Sinif] CHECK CONSTRAINT [FK_Ders_Sinif_Siniflar]
+GO
+ALTER TABLE [dbo].[Notlar]  WITH CHECK ADD  CONSTRAINT [FK_Notlar_Ders_Sinif] FOREIGN KEY([ders_sinif_id])
+REFERENCES [dbo].[Ders_Sinif] ([Id])
+GO
+ALTER TABLE [dbo].[Notlar] CHECK CONSTRAINT [FK_Notlar_Ders_Sinif]
+GO
